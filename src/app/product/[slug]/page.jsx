@@ -27,7 +27,7 @@ export default function AllProducts() {
         const fetchData = async () => {
             try {
                 const res = await axios.get("https://dummyjson.com/products")
-                const featured = res.data.products.filter((products) => products.title.toLowerCase().includes(slug.toLowerCase()))
+                const featured = res.data.products.filter((products) => products.title.toLowerCase() && products.category.includes(slug.toLowerCase()))
                 setNewProducts(featured)
             } catch (err) {
                 console.log("error found")
@@ -37,7 +37,9 @@ export default function AllProducts() {
     }, [])
     if (newProducts.length === 0) {
         return (
-            <div className="relative flex flex-row  justify-center items-center min-w-full h-screen">
+            <div className="relative flex  justify-center items-center min-w-full h-screen">
+                
+               
                 <div className="relative flex flex-col gap-[5vw] sm:gap-[4vw] md:gap-[4vw] lg:gap-[5vw] w-[70vw] sm:w-[55vw] md:w-[45vw] lg:w-[40vw] items-center">
                     <Lottie
                         animationData={coom}
@@ -55,7 +57,7 @@ export default function AllProducts() {
 
     return (
         <>
-            <div className="relative min-w-full h-screen bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
+            <div className="relative min-w-full h-full bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
 
                 <div className="relative flex flex-col gap-[2vw] py-[7vw] px-[5vw] ">
                     <div>
