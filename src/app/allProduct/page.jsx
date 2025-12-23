@@ -3,14 +3,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation" 
+import { useRouter } from "next/navigation"
 import { useParams } from "next/navigation"
 
 export default function AllProducts() {
     const [newProducts, setNewProducts] = useState(null)
-    const Router =useRouter()
+    const Router = useRouter()
     const { slug } = useParams()
-    
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,24 +18,22 @@ export default function AllProducts() {
                 const res = await axios.get("https://dummyjson.com/products")
                 const featured = res.data.products.filter((products) => products.id >= 1 && products.id <= 15)
                 setNewProducts(res.data.products)
-                console.log(featured, "100000101")
-                console.log(res.data.products, "555555")
             } catch (err) {
                 console.log("error found")
             }
         }
         fetchData()
-    }, [AllProducts,])
-    console.log(slug,"1111")
+    }, [])
+    console.log(slug, "1111")
     return (
         <>
-           <div className="relative min-w-full h-full bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
+            <div className="relative min-w-full h-full bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
                 <div className="relative flex flex-col gap-[2vw] py-[7vw] px-[5vw] ">
-                     <div>
+                    <div>
                         <img
-                        onClick={() => Router.back()}
-                        className="relative text-white w-[2vw] font-semibold cursor-pointer transform translate-y-[2vw] translate-x-[80vw]" src={"/pngtree-back-arrow-backward-direction-previous-png-image_5198415.png"}/>
-                                        <p className="text-3xl font-bold">FEATURED PRODUCTS</p>
+                            onClick={() => Router.back()}
+                            className="relative text-white w-[2vw] font-semibold cursor-pointer transform translate-y-[2vw] translate-x-[80vw]" src={"/pngtree-back-arrow-backward-direction-previous-png-image_5198415.png"} />
+                        <p className="text-3xl font-bold">FEATURED PRODUCTS</p>
 
                     </div>
                     <div className="relative grid grid-cols-2 sm:grid-cols-3  md:grid-cols-3  lg:grid-cols-4 gap-[4vw] justify-center items-center" >

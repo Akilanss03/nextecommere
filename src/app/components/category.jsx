@@ -10,8 +10,7 @@ import { ScrollTrigger } from "gsap/all"
 gsap.registerPlugin(ScrollTrigger)
 export default function CategoryPage() {
     const [category, setCategory] = useState()
-    const scrollRef = useRef()
-    const textRef = useRef()
+
 
 
     useEffect(() => {
@@ -20,11 +19,6 @@ export default function CategoryPage() {
                 const res = await axios.get("https://dummyjson.com/products")
                 const uniqueCategory = [...new Set(res.data.products.map((item) => (item.category)))]
                 setCategory(uniqueCategory)
-                console.log(res.data.products.map((items) => (
-                    items.id
-                )), "111111")
-                console.log(uniqueCategory)
-
             } catch (error) {
                 console.log("error on category")
             }

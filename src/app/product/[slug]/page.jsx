@@ -3,71 +3,68 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation" 
+import { useRouter } from "next/navigation"
 import { useParams } from "next/navigation"
 import Lottie from "lottie-react"
 
 
 export default function AllProducts() {
     const [newProducts, setNewProducts] = useState([])
-    const Router =useRouter()
+    const Router = useRouter()
     const { slug } = useParams()
     const [coom, setCoom] = useState()
     const LottieRef = useRef(null)
-    
+
 
     useEffect(() => {
-    fetch("/comingsoon.json")
-      .then((res) => res.json())
-      .then(setCoom)
-      .catch(console.error)
-    
-  }, []);
+        fetch("/comingsoon.json")
+            .then((res) => res.json())
+            .then(setCoom)
+            .catch(console.error)
+
+    }, []);
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const res = await axios.get("https://dummyjson.com/products")
                 const featured = res.data.products.filter((products) => products.title.toLowerCase().includes(slug.toLowerCase()))
                 setNewProducts(featured)
-                console.log(featured, "100000101")
-                console.log(res.data.p, "555555")
             } catch (err) {
                 console.log("error found")
             }
         }
         fetchData()
     }, [])
-    if(newProducts.length === 0){
+    if (newProducts.length === 0) {
         return (
             <div className="relative flex justify-center items-center min-w-full h-screen">
                 <div className="relative flex w-[40vw]">
-                   <Lottie
-                  animationData={coom}
-                  loop={true}
-                  autoplay={true}
-                  lottieRef={LottieRef}
-                  className="relative"
-                />
+                    <Lottie
+                        animationData={coom}
+                        loop={true}
+                        autoplay={true}
+                        lottieRef={LottieRef}
+                        className="relative"
+                    />
                 </div>
-                
+
             </div>
-       )
+        )
     }
-                
-    console.log(slug,"1111")
+
     return (
         <>
             <div className="relative min-w-full h-full bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
-            
+
                 <div className="relative flex flex-col gap-[2vw] py-[7vw] px-[5vw] ">
                     <div>
                         <img
-                        onClick={() => Router.back()}
-                        className="relative text-white w-[2vw] font-semibold cursor-pointer transform translate-y-[2vw] translate-x-[80vw]" src={"/pngtree-back-arrow-backward-direction-previous-png-image_5198415.png"}/>
-                    <p className="text-3xl font-bold">SEARCHED FOR:{slug.toUpperCase()}</p> 
+                            onClick={() => Router.back()}
+                            className="relative text-white w-[2vw] font-semibold cursor-pointer transform translate-y-[2vw] translate-x-[80vw]" src={"/pngtree-back-arrow-backward-direction-previous-png-image_5198415.png"} />
+                        <p className="text-3xl font-bold">SEARCHED FOR:{slug.toUpperCase()}</p>
                     </div>
-                    
-                     <div className="relative grid grid-cols-2 sm:grid-cols-3  md:grid-cols-3  lg:grid-cols-4 gap-[4vw] justify-center items-center" >
+
+                    <div className="relative grid grid-cols-2 sm:grid-cols-3  md:grid-cols-3  lg:grid-cols-4 gap-[4vw] justify-center items-center" >
 
                         {newProducts?.map((item) => (
 

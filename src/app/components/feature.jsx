@@ -13,8 +13,6 @@ export default function Featured() {
                 const res = await axios.get("https://dummyjson.com/products")
                 const featured = res.data.products.filter((products) => products.id >= 1 && products.id <= 15)
                 setNewProducts(featured)
-                console.log(featured, "100000101")
-                console.log(res.data.products, "555555")
             } catch (err) {
                 console.log("error found")
             }

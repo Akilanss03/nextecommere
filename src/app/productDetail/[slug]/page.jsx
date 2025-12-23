@@ -19,8 +19,6 @@ export default function ProductDetail(){
                 const res = await axios.get("https://dummyjson.com/products")
                 const data = res.data.products.find((item) => item.id === id)
                 setDetails(data)
-                console.log(data,"====")
-
             } catch (error) {
                 console.log("error on fetching")
             }
