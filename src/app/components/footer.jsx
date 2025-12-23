@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-        <div className="min-w-full h-[3vw] bg-cover bg-gray-950">
+        <div className="min-w-full h-[1vw] sm:h-[2vw] md:h-[2vw] lg:h-[3vw]  bg-cover bg-gray-950">
          <div className="container mx-auto">
         <p className="text-white text-center">
             Copyrights &copy; Ecommerce shop 2032. All rights

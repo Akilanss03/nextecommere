@@ -37,15 +37,16 @@ export default function AllProducts() {
     }, [])
     if (newProducts.length === 0) {
         return (
-            <div className="relative flex justify-center items-center min-w-full h-screen">
-                <div className="relative flex w-[40vw]">
+            <div className="relative flex flex-row  justify-center items-center min-w-full h-screen">
+                <div className="relative flex flex-col gap-[5vw] sm:gap-[4vw] md:gap-[4vw] lg:gap-[5vw] w-[70vw] sm:w-[55vw] md:w-[45vw] lg:w-[40vw] items-center">
                     <Lottie
                         animationData={coom}
                         loop={true}
                         autoplay={true}
                         lottieRef={LottieRef}
-                        className="relative"
+                        className="relative bg-white"
                     />
+                    <p>No products found Search again</p>
                 </div>
 
             </div>
@@ -54,13 +55,13 @@ export default function AllProducts() {
 
     return (
         <>
-            <div className="relative min-w-full h-full bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
+            <div className="relative min-w-full h-screen bg-cover bg-center bg-gradient-to-r from-slate-950 via-white/10 to-slate-950">
 
                 <div className="relative flex flex-col gap-[2vw] py-[7vw] px-[5vw] ">
                     <div>
-                        <img
+                       <img
                         onClick={() => Router.back()}
-                        className="text-white w-[10vw] sm:w-[7vw] md:w-[6vw] lg:w-[3vw] font-semibold cursor-pointer transform translate-y-[-10vw] min-[300px]:max-[639px]:translate-y-[1vw] sm:translate-y-[2vw] md:translate-y-[2vw] lg:translate-y-[3vw] translate-x-[80vw]" src={"/pngtree-back-arrow-backward-direction-previous-png-image_5198415.png"}/>
+                        className="text-white w-[10vw] sm:w-[7vw] md:w-[6vw] lg:w-[4vw] font-semibold cursor-pointer transform translate-y-[-10vw] min-[300px]:max-[639px]:translate-y-[7vw] sm:translate-y-[2vw] md:translate-y-[2vw] lg:translate-y-[3vw] translate-x-[80vw]" src={"/pngtree-back-arrow-backward-direction-previous-png-image_5198415.png"}/>
                         <p className="text-sm sm:text-[15px] md:text-[20px] lg:text-[30px] font-bold">SEARCHED FOR:{slug.toUpperCase()}</p>
                     </div>
 
