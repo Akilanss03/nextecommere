@@ -24,7 +24,7 @@ export default function Header() {
                 {/* <div className="absolute z-99 inset-0 bg-white w-[16vw] h-[10vh] translate-x-[70vw] transform opacity-0 transition-opacity duration-300 hover:opacity-100 "></div> */}  
                 </div>
                 
-                <div className="relative flex flex-row gap-[2vw] bg-gradient-to-r from-black-700 via-white to-black-700 rounded-2xl shadow-2xl w-[150vw] sm:w-[100vw] md:w-[120vw] lg:w-[120vw] h-[6vh] sm:h-[3.5vh] md:h-[4vh] lg:h-[5vh] transform translate-x-[-2vw] justify-center items-center">
+                <div className="relative flex flex-row gap-[2vw] bg-gradient-to-r from-black-700 via-white to-white rounded-2xl shadow-2xl w-[150vw] sm:w-[100vw] md:w-[120vw] lg:w-[120vw] h-[6vh] sm:h-[3.5vh] md:h-[4vh] lg:h-[5vh] transform translate-x-[-2vw] justify-center items-center">
                     
                         <form className="relative flex cursor-text" onSubmit={handleSearch}>
                          <input className=" bg-grey-700 border  border-black/50 border-[2px]  rounded-2xl w-[30vw] sm:w-[18vw] md:w-[20vw] lg:w-[25vw] h-[3vh] sm:h-[2.5vh] md:h-[2.5vh] lg:h-[4vh]  text-black placeholder:text-sm sm:placeholder:text-xl md:placeholder:text-xl lg:placeholder:text-xl " onChange={(e) => setSearch(e.target.value)} value={search} type="text" placeholder=" 🔎 search" />
